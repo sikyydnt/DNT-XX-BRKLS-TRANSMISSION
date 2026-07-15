@@ -149,14 +149,27 @@ transform:translate(3px,-2px);
 }
 
 
-
 @keyframes flicker{
 
-.hidden{
-display:none;
+0%{
+opacity:1;
 }
 
+50%{
+opacity:.5;
+}
+
+100%{
+opacity:1;
+}
+
+}
+
+
+/* TIMER */
+
 #timer{
+
 text-align:center;
 margin:60px auto;
 font-size:35px;
@@ -164,12 +177,16 @@ border:2px solid #00ff66;
 padding:30px;
 width:70%;
 box-shadow:0 0 30px #00ff66;
+
 }
 
+
 #countdown{
+
 font-size:70px;
 color:#00ff66;
 font-weight:bold;
+
 }
 
 50%{

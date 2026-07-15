@@ -4,9 +4,9 @@ const countdown = document.getElementById("countdown");
 
 const text = [
 
-"> DNT NETWORK BOOTING...",
+"> VERNISAUGE NETWORK BOOTING...",
 "> CONNECTING...",
-"> LOADING $IKY...",
+"> LOADING...",
 "> SYSTEM ONLINE."
 
 ];

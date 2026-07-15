@@ -1,32 +1,99 @@
 const terminal = document.getElementById("terminal");
-const timer = document.getElementById("timer");
+const countdown = document.getElementById("countdown");
+
 
 const text = [
+
 "> DNT NETWORK BOOTING...",
 "> CONNECTING...",
 "> LOADING $IKY...",
-"> SYSTEM ONLINE.",
-"> NEXT DROP READY."
+"> SYSTEM ONLINE."
+
 ];
+
 
 let i = 0;
 
-function start(){
 
-    if(i < text.length){
 
-        terminal.innerHTML += text[i] + "<br>";
+function boot(){
 
-        i++;
+if(i < text.length){
 
-        setTimeout(start,1000);
 
-    } else {
+terminal.innerHTML += text[i] + "<br>";
 
-        timer.style.display = "block";
+i++;
 
-    }
+
+setTimeout(boot,1000);
+
 
 }
 
-start();
+else{
+
+
+setTimeout(()=>{
+
+
+terminal.style.display="none";
+
+countdown.style.display="block";
+
+
+startCountdown();
+
+
+},1000);
+
+
+}
+
+}
+
+
+
+let time = 3600;
+
+
+
+function startCountdown(){
+
+
+setInterval(()=>{
+
+
+let hours=Math.floor(time/3600);
+
+let minutes=Math.floor((time%3600)/60);
+
+let seconds=time%60;
+
+
+
+countdown.innerHTML =
+
+String(hours).padStart(2,"0")
++":"+
+String(minutes).padStart(2,"0")
++":"+
+String(seconds).padStart(2,"0");
+
+
+
+if(time>0){
+
+time--;
+
+}
+
+
+},1000);
+
+
+}
+
+
+
+boot();

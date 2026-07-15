@@ -12,33 +12,63 @@ background:black;
 
 color:#39ff14;
 
-font-family:
-"Courier New",
-monospace;
+font-family:"Courier New", monospace;
 
 overflow:hidden;
 
 }
 
 
-.crt{
+
+.screen{
 
 height:100vh;
 
 display:flex;
 
-align-items:center;
-
 justify-content:center;
 
-position:relative;
+align-items:center;
+
+flex-direction:column;
 
 }
 
 
-/* CRT scanlines */
 
-.crt:after{
+#terminal{
+
+font-size:22px;
+
+line-height:35px;
+
+text-align:center;
+
+text-shadow:
+0 0 5px #39ff14,
+0 0 20px #39ff14;
+
+}
+
+
+
+#countdown{
+
+display:none;
+
+font-size:80px;
+
+font-weight:bold;
+
+text-shadow:
+0 0 10px #39ff14,
+0 0 30px #39ff14;
+
+}
+
+
+
+body:after{
 
 content:"";
 
@@ -46,117 +76,30 @@ position:absolute;
 
 inset:0;
 
+pointer-events:none;
+
 background:
 
 repeating-linear-gradient(
 0deg,
-rgba(255,255,255,.05),
-rgba(255,255,255,.05) 1px,
+rgba(255,255,255,0.05),
+rgba(255,255,255,0.05) 1px,
 transparent 2px,
 transparent 4px
 );
 
-pointer-events:none;
-
 }
 
-
-/* boot */
-
-#boot{
-
-position:absolute;
-
-font-size:20px;
-
-animation:flicker .15s infinite;
-
-}
-
-
-
-.terminal{
-
-display:none;
-
-text-align:center;
-
-width:90%;
-
-}
-
-
-
-.logo{
-
-font-size:60px;
-
-font-weight:bold;
-
-text-shadow:
-3px 0 red,
--3px 0 blue;
-
-animation:glitch .8s infinite;
-
-}
-
-
-
-#output{
-
-margin-top:40px;
-
-font-size:22px;
-
-line-height:35px;
-
-}
-
-
-
-.cursor{
-
-animation:blink 1s infinite;
-
-}
-
-
-
-@keyframes blink{
-
-50%{
-opacity:0;
-}
-
-}
 
 
 @keyframes glitch{
-
-0%{
-transform:translate(0);
-}
-
-20%{
-transform:translate(-3px,2px);
-}
-
-40%{
-transform:translate(3px,-2px);
-}
-
-}
-
-
-@keyframes flicker{
 
 0%{
 opacity:1;
 }
 
 50%{
-opacity:.5;
+opacity:.7;
 }
 
 100%{
@@ -166,31 +109,8 @@ opacity:1;
 }
 
 
-/* TIMER */
+#terminal{
 
-#timer{
-
-text-align:center;
-margin:60px auto;
-font-size:35px;
-border:2px solid #00ff66;
-padding:30px;
-width:70%;
-box-shadow:0 0 30px #00ff66;
-
-}
-
-
-#countdown{
-
-font-size:70px;
-color:#00ff66;
-font-weight:bold;
-
-}
-
-50%{
-opacity:.5;
-}
+animation:glitch .15s infinite;
 
 }

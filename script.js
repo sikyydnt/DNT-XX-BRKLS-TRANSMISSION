@@ -2,36 +2,31 @@ const terminal = document.getElementById("terminal");
 const timer = document.getElementById("timer");
 
 const text = [
-    "> DNT NETWORK BOOTING...",
-    "> CONNECTING...",
-    "> LOADING $IKY...",
-    "> ACCESS GRANTED.",
-    "> SYSTEM ONLINE.",
-    "> NEXT DROP READY."
+"> DNT NETWORK BOOTING...",
+"> CONNECTING...",
+"> LOADING $IKY...",
+"> SYSTEM ONLINE.",
+"> NEXT DROP READY."
 ];
 
 let i = 0;
 
-function start() {
+function start(){
 
-    if (i < text.length) {
+    if(i < text.length){
 
-        let line = document.createElement("div");
-        line.textContent = text[i];
-
-        terminal.appendChild(line);
+        terminal.innerHTML += text[i] + "<br>";
 
         i++;
 
-        setTimeout(start, 1200);
+        setTimeout(start,1000);
 
     } else {
 
-        if(timer){
-            timer.style.display = "block";
-        }
+        timer.style.display = "block";
 
     }
+
 }
 
-window.onload = start;
+start();
